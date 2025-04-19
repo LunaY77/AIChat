@@ -1,0 +1,1347 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AIChat",
+    "description": "AIChat接口文档",
+    "contact": {
+      "name": "苍镜月",
+      "url": "地址",
+      "email": "2307984361@qq.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://springdoc.org"
+    },
+    "version": "v1"
+  },
+  "externalDocs": {
+    "description": "外部文档",
+    "url": "https://springshop.wiki.github.org/docs"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8082",
+      "description": "Generated server url"
+    }
+  ],
+  "security": [
+    {
+      "Authorization": []
+    }
+  ],
+  "paths": {
+    "/capi/user/public/register": {
+      "post": {
+        "tags": [
+          "用户公共接口"
+        ],
+        "summary": "用户注册",
+        "description": "用户注册接口",
+        "operationId": "register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRegisterRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capi/user/public/login": {
+      "post": {
+        "tags": [
+          "用户公共接口"
+        ],
+        "summary": "用户登录",
+        "description": "用户登录接口",
+        "operationId": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanLoginInfoResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capi/ai/session": {
+      "post": {
+        "tags": [
+          "AI会话接口"
+        ],
+        "summary": "创建会话",
+        "description": "创建会话",
+        "operationId": "createSession",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AISessionCreateReq"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanAISessionInfoResp"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "AI会话接口"
+        ],
+        "summary": "批量删除会话",
+        "description": "批量删除会话",
+        "operationId": "deleteSession",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AISessionDeleteReq"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capi/ai/session/name": {
+      "post": {
+        "tags": [
+          "AI会话接口"
+        ],
+        "summary": "修改会话名称",
+        "description": "修改会话名称",
+        "operationId": "changeName",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AISessionNameChangeReq"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capi/ai/chat/stream": {
+      "post": {
+        "tags": [
+          "AI聊天接口"
+        ],
+        "summary": "ai聊天接口(stream)",
+        "description": "ai聊天接口，返回聊天结果, 前端通过SSE接收数据, 格式为json，监听事件为 message (重要！！！)",
+        "operationId": "chatStream",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AIMessageReq"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ServerSentEventString"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capi/ai/chat/block": {
+      "post": {
+        "tags": [
+          "AI聊天接口"
+        ],
+        "summary": "ai聊天接口(block)",
+        "description": "ai聊天接口(block)",
+        "operationId": "chatBlocking",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AIMessageReq"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanString"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capi/user/public/refreshToken": {
+      "get": {
+        "tags": [
+          "用户公共接口"
+        ],
+        "summary": "刷新token",
+        "description": "刷新token接口",
+        "operationId": "refreshToken",
+        "parameters": [
+          {
+            "name": "refresh_token",
+            "in": "cookie",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanString"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capi/user/logout": {
+      "get": {
+        "tags": [
+          "用户接口"
+        ],
+        "summary": "退出登录",
+        "description": "退出登录",
+        "operationId": "logout",
+        "parameters": [
+          {
+            "name": "refresh_token",
+            "in": "cookie",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/capi/user/info/me": {
+      "get": {
+        "tags": [
+          "用户接口"
+        ],
+        "summary": "获取当前用户信息",
+        "description": "获取当前用户信息",
+        "operationId": "getUserInfo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanUserInfoResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/capi/ai/session/{id}": {
+      "get": {
+        "tags": [
+          "AI会话接口"
+        ],
+        "summary": "根据id查询会话",
+        "description": "根据id查询会话",
+        "operationId": "findById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanAISession"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capi/ai/session/page": {
+      "get": {
+        "tags": [
+          "AI会话接口"
+        ],
+        "summary": "根据用户查询会话",
+        "description": "根据用户查询会话",
+        "operationId": "findByUser",
+        "parameters": [
+          {
+            "name": "req",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PageBaseReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanPageBaseRespAISessionInfoResp"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capi/ai/chat/history/{sessionId}": {
+      "get": {
+        "tags": [
+          "AI聊天接口"
+        ],
+        "summary": "获取历史记录",
+        "description": "获取历史记录",
+        "operationId": "getHistory",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanListAIMessage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "AI聊天接口"
+        ],
+        "summary": "删除历史记录",
+        "description": "删除历史记录",
+        "operationId": "deleteHistory",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestBeanVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RestBeanVoid": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "object"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "description": "基础返回体"
+      },
+      "UserRegisterRequest": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "用户名"
+          },
+          "password": {
+            "type": "string",
+            "description": "密码"
+          }
+        },
+        "description": "用户注册请求"
+      },
+      "UserLoginRequest": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "登录的用户名"
+          },
+          "password": {
+            "type": "string",
+            "description": "登录的用户密码"
+          }
+        },
+        "description": "用户登录请求"
+      },
+      "LoginInfoResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "用户id",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "用户名"
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "access_token"
+          }
+        },
+        "description": "用户登录信息"
+      },
+      "RestBeanLoginInfoResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoginInfoResponse"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "description": "基础返回体"
+      },
+      "AISessionCreateReq": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "AI会话名称"
+          }
+        },
+        "description": "AI会话创建请求"
+      },
+      "AISessionInfoResp": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "会话id"
+          },
+          "name": {
+            "type": "string",
+            "description": "会话名称"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户id",
+            "format": "int64"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        },
+        "description": "AI Session信息响应"
+      },
+      "RestBeanAISessionInfoResp": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/AISessionInfoResp"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "description": "基础返回体"
+      },
+      "AISessionNameChangeReq": {
+        "required": [
+          "name",
+          "sessionId"
+        ],
+        "type": "object",
+        "properties": {
+          "sessionId": {
+            "type": "string",
+            "description": "AI会话ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "AI会话名称"
+          }
+        },
+        "description": "AI会话名称修改请求"
+      },
+      "AIMessageReq": {
+        "required": [
+          "content",
+          "messageType",
+          "sessionId"
+        ],
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string",
+            "description": "ai消息内容"
+          },
+          "messageType": {
+            "type": "integer",
+            "description": "ai消息类型(0 user / 1 assistant / 2 system)",
+            "format": "int32"
+          },
+          "sessionId": {
+            "type": "string",
+            "description": "ai消息会话id"
+          },
+          "enableVectorStore": {
+            "type": "boolean",
+            "description": "是否开启向量数据库"
+          },
+          "enableAgent": {
+            "type": "boolean",
+            "description": "是否开启Agent模式"
+          }
+        },
+        "description": "AI消息请求"
+      },
+      "ServerSentEventString": {
+        "type": "object"
+      },
+      "RestBeanString": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "description": "基础返回体"
+      },
+      "RestBeanUserInfoResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/UserInfoResponse"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "description": "基础返回体"
+      },
+      "UserInfoResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "用户id",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "用户名"
+          }
+        },
+        "description": "用户信息"
+      },
+      "AISession": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "会话名称"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户id",
+            "format": "int64"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "修改时间",
+            "format": "date-time"
+          }
+        },
+        "description": "ai会话表"
+      },
+      "RestBeanAISession": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/AISession"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "description": "基础返回体"
+      },
+      "PageBaseReq": {
+        "type": "object",
+        "properties": {
+          "pageSize": {
+            "maximum": 50,
+            "minimum": 0,
+            "type": "integer",
+            "description": "页面大小",
+            "format": "int32"
+          },
+          "pageNo": {
+            "type": "integer",
+            "description": "页面索引（从1开始）",
+            "format": "int32"
+          }
+        },
+        "description": "基础翻页请求"
+      },
+      "PageBaseRespAISessionInfoResp": {
+        "type": "object",
+        "properties": {
+          "pageNo": {
+            "type": "integer",
+            "description": "当前页数",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页查询数量",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "description": "总记录数",
+            "format": "int64"
+          },
+          "isLast": {
+            "type": "boolean",
+            "description": "是否最后一页"
+          },
+          "list": {
+            "type": "array",
+            "description": "数据列表",
+            "items": {
+              "$ref": "#/components/schemas/AISessionInfoResp"
+            }
+          }
+        },
+        "description": "基础翻页返回"
+      },
+      "RestBeanPageBaseRespAISessionInfoResp": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageBaseRespAISessionInfoResp"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "description": "基础返回体"
+      },
+      "AIMessage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "refType": null
+          },
+          "messageType": {
+            "type": "integer",
+            "description": "ai消息类型(0 user / 1 assistant / 2 system)",
+            "format": "int32",
+            "refType": null
+          },
+          "content": {
+            "type": "string",
+            "description": "ai消息内容",
+            "refType": null
+          },
+          "sessionId": {
+            "type": "string",
+            "description": "ai消息会话id",
+            "refType": null
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户id",
+            "format": "int64",
+            "refType": null
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time",
+            "refType": null
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "修改时间",
+            "format": "date-time",
+            "refType": null
+          }
+        },
+        "description": "ai消息表"
+      },
+      "RestBeanListAIMessage": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AIMessage"
+            }
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "description": "基础返回体"
+      },
+      "AISessionDeleteReq": {
+        "type": "object",
+        "properties": {
+          "sessionIds": {
+            "maxItems": 2147483647,
+            "minItems": 1,
+            "type": "array",
+            "description": "会话ID列表",
+            "items": {
+              "type": "string",
+              "description": "会话ID列表"
+            }
+          }
+        },
+        "description": "AI会话删除请求"
+      }
+    },
+    "securitySchemes": {
+      "Authorization": {
+        "type": "http",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

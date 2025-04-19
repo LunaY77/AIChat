@@ -47,7 +47,7 @@ public class AIMessageDao extends ServiceImpl<AIMessageMapper, AIMessage> {
         return lambdaQuery()
                 .eq(AIMessage::getSessionId, sessionId)
                 .eq(AIMessage::getUserId, userId)
-                .orderByDesc(AIMessage::getCreateTime)
+                .orderByAsc(AIMessage::getCreateTime)
                 .list();
     }
 }
