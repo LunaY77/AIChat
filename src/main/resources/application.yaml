@@ -1,0 +1,59 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: pro
+  application:
+    name: AIChat
+  datasource:
+    url: jdbc:mysql://${AIChat.mysql.ip}:${AIChat.mysql.port}/${AIChat.mysql.db}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: ${AIChat.mysql.username}
+    password: ${AIChat.mysql.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000   #不能小于30秒，否则默认回到1800秒
+      connection-test-query: SELECT 1
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  data:
+    redis:
+      # Redis服务器地址
+      host: ${AIChat.redis.host}
+      # Redis服务器端口号
+      port: ${AIChat.redis.port}
+      # 使用的数据库索引，默认是0
+      database: 0
+      # 连接超时时间
+      timeout: 1800000
+      password: ${AIChat.redis.password}
+
+  ai:
+      # 阿里灵积
+      dash-scope:
+        api-key: ${AIChat.dash-scope.api-key}
+        embedding:
+          options:
+            model: ${AIChat.dash-scope.embedding.options.model}
+            dimensions: ${AIChat.dash-scope.embedding.options.dimensions} # 向量维度
+        chat:
+          options:
+            model: ${AIChat.dash-scope.chat.options.model} # 模型名称
+            temperature: ${AIChat.dash-scope.chat.options.temperature} # 模型温度，值越大，结果越随机
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan:
+        - com.iflove.aichat.api.user.controller
+        - com.iflove.aichat.api.ai.controller
